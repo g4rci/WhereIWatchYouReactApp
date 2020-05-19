@@ -1,0 +1,31 @@
+#_container{
+    display: flex;
+    flex-direction: row;
+    background-color: #343A40;
+    overflow: scroll;
+}
+._cards{
+    width: 150px;
+    overflow: scroll;
+}
+
+.card-body{
+    background-color: #E9ECEF;
+}
+._cardList{
+    margin: 5px 10px;
+}
+
+._cards p{
+    color: black;
+}
+
+._card button{
+    float: right;
+}
+.bg-dark{
+    color: white;
+    margin: 0;
+    padding-left: 20px;
+    padding-top: 20px;
+}
