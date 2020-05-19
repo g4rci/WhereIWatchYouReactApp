@@ -12,7 +12,7 @@
 /build
 /src/services
 # misc
-
+.env
 .DS_Store
 .env.local
 .env.development.local
