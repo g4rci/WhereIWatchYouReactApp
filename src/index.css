@@ -1,7 +1,6 @@
 #root{
     min-height: 102vh;
-    background-color: #343a40;
-    z-index: -1;
+    
 }
 
 ._background{
@@ -18,7 +17,7 @@
      height: 100%;
      top: 0;
      left: 0;
-     z-index: 0;
+     z-index: -1;
 }
 .transparent{
     opacity: 0.8;

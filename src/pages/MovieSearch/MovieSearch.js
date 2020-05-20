@@ -28,6 +28,7 @@ function MovieSearch(props) {
 
   return (
     <div className='sections' key="ok">
+    <div className='moviesearchbackground'></div>
         <div id="container">
       {listOfMatch.map((movie) => {
         return (
