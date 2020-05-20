@@ -67,7 +67,7 @@ import Footer from "../../components/Footer/Footer";
 
     
     return (
-      <div className='info'>
+      <div className='info sections'>
       <Card style={{ width: "100vw" }}>
         <Card.Img className='backdrop' variant="top" src={`https://image.tmdb.org/t/p/w500//${movieDetails.backdrop_path}`} />
         <Card.Body>

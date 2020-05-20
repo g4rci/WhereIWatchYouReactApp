@@ -7,22 +7,25 @@
     background-color: #343A40;
 }
 .cards{
-    height: 300px;
-    width: 300px;
-    overflow: scroll;
+    width: 150px;
+    max-width: 300px;
+    margin: 16px;
+}
+.cards2{
+    width: 80%;
+    margin: 5px 40px;
 }
 
 .card-body{
     background-color: #E9ECEF;
 }
-.cardList{
-    margin: 20px 16px 0 16px;
+.movieTtitle{
+    color: white;
+    position: relative;
+    transform: translate(5%, 200%);
+    overflow: scroll;
+    white-space: nowrap;
+    z-index: 1;
+    width: 135px;
 }
 
-.cards p{
-    color: black;
-}
-
-.card button{
-    float: right;
-}

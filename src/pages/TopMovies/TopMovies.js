@@ -9,6 +9,10 @@ import ComedyMovies from "../MovieLists/Comedy";
 import ActionMovies from "../MovieLists/Action";
 import ScyFyMovies from "../MovieLists/ScyFy";
 import AnimationMovies from "../MovieLists/Animation";
+import CrimeMovies from "../MovieLists/Crime";
+import TerrorMovies from "../MovieLists/Terror";
+import MusicMovies from "../MovieLists/Music";
+
 
 function TopMovies(props) {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -28,7 +32,7 @@ function TopMovies(props) {
     
     
     return (
-        <div key="ok">
+        <div className='sections' key="ok">
         <Carousel />
         <div key="ok">
         <div className='title'>
@@ -54,6 +58,9 @@ function TopMovies(props) {
         <ComedyMovies />
         <ScyFyMovies />
         <AnimationMovies />
+        <CrimeMovies />
+        <TerrorMovies />
+        <MusicMovies />
         <Footer />
     </div>
   );
