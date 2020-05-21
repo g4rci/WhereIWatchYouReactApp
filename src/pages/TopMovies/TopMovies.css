@@ -1,8 +1,7 @@
 #_container{
     display: flex;
     background-color: #343A40;
-    background-repeat: repeat-x;
-    width: 255%;
+    width: fit-content;
 }
 .indiana-scroll-container--hide-scrollbars{
     overflow: auto !important;
