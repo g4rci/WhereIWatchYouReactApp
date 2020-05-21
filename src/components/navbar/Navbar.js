@@ -3,6 +3,7 @@ import { auth } from '../../services/firebase';
 import './NavBar.css'
 import { Nav, Form, FormControl, Button } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
+import { withRouter } from 'react-router-dom';
 
 class Navigation extends React.Component {
   state = { name: ''};
@@ -11,15 +12,11 @@ class Navigation extends React.Component {
     this.setState({
       name: search.target.value,
     }); 
-    console.log(this.state)
   };
   
-  
-//   handleFormSubmit = (event) =>{
-  
-//   event.preventDefault();
-//   useHistory().push("/mygroups")
-// }
+  submitForm (e) {
+    this.props.history.push(`/moviesearch/${this.state.name}`); 
+  }
 
 render () {
 
@@ -41,9 +38,9 @@ render () {
               <Nav.Link href="/signup">SignUp</Nav.Link>
               </Nav>
             }
-            <Form onSubmit={this.handleFormSubmit} inline>
+            <Form onSubmit={this.submitForm.bind(this)} inline>
               <FormControl href={`/moviesearch/${this.state.name}`} className='mb-2 mt-2 mr-sm-2' value={name} onChange={this.searchFilter} type="search" placeholder="eg: Avengers" />
-              <Button className='mb-2 mt-2' href={`/moviesearch/${this.state.name}`} variant="outline-success" >Buscar</Button>
+              <Button type='submit' className='mb-2 mt-2' href={`/moviesearch/${this.state.name}`} variant="outline-success" >Buscar</Button>
             </Form>
           </Navbar.Collapse>
         </Navbar>
@@ -51,4 +48,4 @@ render () {
     ) 
     }}
 
-    export default Navigation
+    export default withRouter(Navigation)
