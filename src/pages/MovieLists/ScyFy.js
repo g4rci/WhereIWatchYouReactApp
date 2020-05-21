@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from 'react-bootstrap/Card'
 import { Link } from "react-router-dom";
+import ScrollContainer from 'react-indiana-drag-scroll'
 
 function ScyFyMovies(props) {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -25,6 +26,7 @@ function ScyFyMovies(props) {
         <div className='title'>
         <h5 className='bg-dark' variant='dark'>ScyFy</h5>
         </div>
+        <ScrollContainer id="_container">
         <div id="_container">
       {listOfMovies.map((movie) => {
         return (
@@ -40,7 +42,7 @@ function ScyFyMovies(props) {
         );
       })}
     </div>
-        
+    </ScrollContainer>    
     </div>
   );
 }

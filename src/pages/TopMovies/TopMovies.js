@@ -12,6 +12,7 @@ import AnimationMovies from "../MovieLists/Animation";
 import CrimeMovies from "../MovieLists/Crime";
 import TerrorMovies from "../MovieLists/Terror";
 import MusicMovies from "../MovieLists/Music";
+import ScrollContainer from 'react-indiana-drag-scroll'
 
 
 function TopMovies(props) {
@@ -32,12 +33,13 @@ function TopMovies(props) {
     
     
     return (
-        <div className='sections' key="ok">
+      <div className='sections' key="ok">
         <Carousel />
         <div key="ok">
         <div className='title'>
         <h5 className='bg-dark' variant='dark'>Top 20</h5>
         </div>
+      <ScrollContainer id="_container">
         <div id="_container">
       {listOfMovies.map((movie) => {
         return (
@@ -53,6 +55,7 @@ function TopMovies(props) {
         );
       })}
         </div>
+    </ScrollContainer>
         </div>
         <ActionMovies />
         <ComedyMovies />

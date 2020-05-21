@@ -1,12 +1,14 @@
 #_container{
     display: flex;
-    flex-direction: row;
     background-color: #343A40;
-    overflow-x: scroll;
+    background-repeat: repeat-x;
+    width: 255%;
+}
+.indiana-scroll-container--hide-scrollbars{
+    overflow: auto !important;
 }
 ._cards{
     width: 150px;
-    overflow: scroll;
 }
 
 .card-body{
@@ -20,9 +22,6 @@
     color: black;
 }
 
-._card button{
-    float: right;
-}
 .bg-dark{
     color: white;
     margin: 0;
@@ -32,3 +31,4 @@
 .sections{
     margin-bottom: 55px;
 }
+

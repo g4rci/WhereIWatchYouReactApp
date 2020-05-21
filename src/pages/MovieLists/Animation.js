@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from 'react-bootstrap/Card'
 import { Link } from "react-router-dom";
+import ScrollContainer from 'react-indiana-drag-scroll'
+
 
 function AnimationMovies(props) {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -25,6 +27,7 @@ function AnimationMovies(props) {
         <div className='title'>
         <h5 className='bg-dark' variant='dark'>Animación y Familiar</h5>
         </div>
+        <ScrollContainer id="_container">
         <div id="_container">
       {listOfMovies.map((movie) => {
         return (
@@ -40,7 +43,7 @@ function AnimationMovies(props) {
         );
       })}
     </div>
-        
+    </ScrollContainer>    
     </div>
   );
 }
