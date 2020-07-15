@@ -29,7 +29,7 @@ function TopMovies() {
     <Carousel>
       {listOfMovies.map((movie) => {
         return (
-        <Carousel.Item>
+        <Carousel.Item key={movie.id}>
         <Link to={`/moviedetails/${movie.id}`} className="card_link">
             <img
             className="d-block w-100"
