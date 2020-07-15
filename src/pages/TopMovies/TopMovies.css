@@ -2,6 +2,8 @@
     display: flex;
     background-color: #343A40;
     width: fit-content;
+    height: auto;
+    padding-bottom: 20px;
 }
 .indiana-scroll-container--hide-scrollbars{
     overflow: auto !important;
@@ -27,7 +29,5 @@
     padding-left: 20px;
     padding-top: 20px;
 }
-.sections{
-    margin-bottom: 55px;
-}
+
 

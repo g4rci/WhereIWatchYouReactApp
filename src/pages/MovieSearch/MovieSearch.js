@@ -34,7 +34,7 @@ function MovieSearch(props) {
         return (
         <div key={props.key} className='cardList'>
         <div className={listOfMatch.length > 1 ? 'cards' : 'cards2'}>
-        {!movie.backdrop_path ? <p className='movieTtitle'>{movie.title}</p> : <p>.</p>}
+        {!movie.backdrop_path ? <p className='movieTtitle'>{movie.title}</p> : <p className='movieTtitle'><span>.</span></p>}
         <Card style={{ heigth: '100%' }}>
         <Link to={`/moviedetails/${movie.id}`} className="card_link">
         {movie.backdrop_path ?
@@ -47,7 +47,7 @@ function MovieSearch(props) {
         );
       })}
 </div>
-    <Footer />
+    {/* <Footer /> */}
 </div>
   );
 }

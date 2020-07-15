@@ -40,7 +40,7 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
         authenticated === false ? (
           <Component {...props} />
         ) : (
-            <Redirect to="/" />
+            <Redirect to="/topMovies" />
           )
       }
     />

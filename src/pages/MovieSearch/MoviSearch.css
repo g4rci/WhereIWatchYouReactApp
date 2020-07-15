@@ -28,7 +28,7 @@
 .movieTtitle{
     color: white;
     position: relative;
-    transform: translate(5%, 200%);
+    transform: translate(5%, 180%);
     overflow: scroll;
     white-space: nowrap;
     z-index: 1;

@@ -33,13 +33,13 @@ function TopMovies(props) {
     
     
     return (
-      <div className='sections' key="ok">
+    <div className='sections' key="ok">
         <Carousel />
         <div key="ok">
         <div className='title'>
         <h5 className='bg-dark' variant='dark'>Top 20</h5>
         </div>
-      <ScrollContainer id="_container">
+    <ScrollContainer id="_container">
         <div id="_container">
       {listOfMovies.map((movie) => {
         return (
@@ -56,7 +56,7 @@ function TopMovies(props) {
       })}
         </div>
     </ScrollContainer>
-        </div>
+    </div>
         <ActionMovies />
         <ComedyMovies />
         <ScyFyMovies />
@@ -64,7 +64,7 @@ function TopMovies(props) {
         <CrimeMovies />
         <TerrorMovies />
         <MusicMovies />
-        <Footer />
+        {/* <Footer /> */}
     </div>
   );
 }

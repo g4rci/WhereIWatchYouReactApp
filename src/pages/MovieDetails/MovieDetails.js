@@ -11,6 +11,7 @@ import Footer from "../../components/Footer/Footer";
   const [movieTrailer, setMovieTrailer] = useState([]);
   const [movieVod, setMovieVod] = useState([]);
   const [genreList, setGenreList] = useState([]);
+  
   const getMovie =  () => {
      axios
     .get(
@@ -48,24 +49,45 @@ import Footer from "../../components/Footer/Footer";
     }, [movieDetails]);
 
     const getVod = () => {
-      axios
-      .get(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=es&source_id=${movieDetails.id}&source=tmdb`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
-            "x-rapidapi-key": "dee1be226amshd4f1007ee0cfd66p16133djsnb064774f81c4"
+      axios({
+        "method":"GET",
+        "url":"https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup",
+        "headers":{
+        "content-type":"application/octet-stream",
+        "x-rapidapi-host":"utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+        "x-rapidapi-key":"dee1be226amshd4f1007ee0cfd66p16133djsnb064774f81c4",
+        "useQueryString":true
+        },"params":{
+        "country":"es",
+        "source_id":`${props.match.params.id}`,
+        "source":"tmdb"
         }
-    })
+        })
+    //   axios
+    //   .get(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/idlookup?country=es&source_id=${props.match.params.id}&source=tmdb`, {
+    //     "method": "GET",
+    //     "headers": {
+    //         "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+    //         "x-rapidapi-key": "dee1be226amshd4f1007ee0cfd66p16133djsnb064774f81c4"
+    //     }
+    // })
     .then((Response) => {
-      setMovieVod(Response.data.collection.locations)
-    })}
+      var services = Response.data.collection.locations.filter(x => {
+        return x.country == "es"
+      })
+      console.log('serv', services)
+        
+      
+      setMovieVod(services)
+        //setMovieVod(Response.data.collection.locations);
+      })}
   
-    useEffect(function() {
-        getVod();
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [movieDetails])
 
-    
+    useEffect(function () {
+        getVod();
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
       <div className='info sections'>
       <Card style={{ width: "100vw" }}>
@@ -79,7 +101,7 @@ import Footer from "../../components/Footer/Footer";
           <Card.Text>{movieDetails.overview}
       {movieVod.map((vod) => {
         return (
-          <div>
+          <div key={vod.name}>
           <ListGroup className="list-group-flush">
           <a href={vod.url}>  
           <Card.Text>{vod.display_name}: <img src={vod.icon} alt=""></img></Card.Text>
@@ -96,9 +118,11 @@ import Footer from "../../components/Footer/Footer";
             <p>Genres: </p>
             {genreList.map((g) => {
                 return (
+                  <div key={g.name}>
                   <ul>
                     <li>{g.name}</li>
                   </ul> 
+                  </div>
                   )
                 })}
           </ListGroupItem>
@@ -112,7 +136,7 @@ import Footer from "../../components/Footer/Footer";
          <ReactPlayer className='trailer' url={`https://www.youtube.com/watch?v=${movieTrailer}`} playing controls volume={0.5} light width={'100%'} height={'30rem'}/>
         </Card.Body>
       </Card>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
