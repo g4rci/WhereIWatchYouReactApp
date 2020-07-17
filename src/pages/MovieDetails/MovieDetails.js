@@ -67,7 +67,6 @@ import './MovieDetails.css'
         return x.country[0] === 'es'
       })
         setMovieVod(services)
-        console.log(services)
     })}
   
 
