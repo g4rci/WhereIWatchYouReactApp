@@ -11,10 +11,11 @@ function MovieSearch(props) {
   const temp = escape(urlStart);
   const url = serchApiStart + temp + searchApiFin;
   const [listOfMatch, setListOfMatch] = useState([]);
+
   const getMovieSearch = async () => {
     await axios.get(url).then((responseFromApi) => {
       setListOfMatch(responseFromApi.data.results);
-    }, []);
+    });
   };
 
   useEffect(function () {
@@ -23,12 +24,12 @@ function MovieSearch(props) {
   }, []);
 
   return (
-    <div className="sections" key="ok">
+    <div className="sections">
       <div className="moviesearchbackground"></div>
       <div id="container">
         {listOfMatch.map((movie) => {
           return (
-            <div key={props.key} className="cardList">
+            <div key={movie.id} className="cardList">
               <div className={listOfMatch.length > 1 ? "cards" : "cards2"}>
                 {!movie.backdrop_path ? (
                   <p className="movieTtitle">{movie.title}</p>

@@ -30,7 +30,7 @@ import './MovieDetails.css'
     const getTrailer =  () => {
      axios
      .get(
-       `https://api.themoviedb.org/3/movie/${movieDetails.id}/videos?api_key=${process.env.REACT_APP_THEMOVIEDB}`
+       `https://api.themoviedb.org/3/movie/${props.match.params.id}/videos?api_key=${process.env.REACT_APP_THEMOVIEDB}`
        )
        .then((videoResponse) => {
          let trailer = videoResponse.data.results
@@ -45,7 +45,7 @@ import './MovieDetails.css'
     useEffect(function () {
       getTrailer();
           //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [movieDetails]);
+    }, []);
 
     const getVod = () => {
       axios({
@@ -64,13 +64,11 @@ import './MovieDetails.css'
         })
     .then((Response) => {
       var services = Response.data.collection.locations.filter(x => {
-        return x.country == "es"
+        return x.country[0] === 'es'
       })
-        
-      
-      setMovieVod(services)
-        //setMovieVod(Response.data.collection.locations);
-      })}
+        setMovieVod(services)
+        console.log(services)
+    })}
   
 
     useEffect(function () {
