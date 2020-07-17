@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Card from 'react-bootstrap/Card'
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import ScrollContainer from 'react-indiana-drag-scroll'
+import ScrollContainer from "react-indiana-drag-scroll";
 
 function ActionMovies(props) {
   const [listOfMovies, setListOfMovies] = useState([]);
@@ -19,30 +19,37 @@ function ActionMovies(props) {
     getActionMovies();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-    
-    
-    return (
-        <div key="ok">
-        <div className='title'>
-        <h5 className='bg-dark' variant='dark'>Acción y Aventura</h5>
-        </div>
-        <ScrollContainer id="">
+
+  return (
+    <div key="action">
+      <div className="title">
+        <h5 className="bg-dark" variant="dark">
+          Acción y Aventura
+        </h5>
+      </div>
+      <ScrollContainer>
         <div id="_container">
-      {listOfMovies.map((movie) => {
-        return (
-        <div key={props.key} className='_cardList'>
-        <div className='_cards'>
-        <Card style={{ heigth: '100%' }}>
-        <Link to={`/moviedetails/${movie.id}`} className="card_link">
-          <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500//${movie.poster_path}`} />
-        </Link>
-        </Card>
+          {listOfMovies.map((movie) => {
+            return (
+              <div key={movie.id} className="_cardList">
+                <div className="_cards">
+                  <Card style={{ heigth: "100%" }}>
+                    <Link
+                      to={`/moviedetails/${movie.id}`}
+                      className="card_link"
+                    >
+                      <Card.Img
+                        variant="top"
+                        src={`https://image.tmdb.org/t/p/w500//${movie.poster_path}`}
+                      />
+                    </Link>
+                  </Card>
+                </div>
+              </div>
+            );
+          })}
         </div>
-        </div>
-        );
-      })}
-    </div>
-    </ScrollContainer>    
+      </ScrollContainer>
     </div>
   );
 }

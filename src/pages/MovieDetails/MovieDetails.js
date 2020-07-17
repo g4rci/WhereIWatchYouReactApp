@@ -88,7 +88,7 @@ import './MovieDetails.css'
         alt=""
         />
           <Card.Title>{movieDetails.title}</Card.Title>
-          <Card.Text>{movieDetails.overview}
+          <Card.Text>{movieDetails.overview}</Card.Text>
       {movieVod.map((vod) => {
         return (
           <ListGroup key={vod.name} className="list-group-flush">
@@ -98,7 +98,7 @@ import './MovieDetails.css'
           </ListGroup>
         )
       })}
-          </Card.Text>
+          
         </Card.Body>
         <ListGroup className="list-group-flush">
           <ListGroupItem>Original title: {movieDetails.original_title}</ListGroupItem>
