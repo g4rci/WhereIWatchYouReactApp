@@ -63,10 +63,12 @@ import './MovieDetails.css'
         }
         })
     .then((Response) => {
-      var services = Response.data.collection.locations.filter(x => {
-        return x.country[0] === 'es'
-      })
-        setMovieVod(services)
+      setMovieVod(Response.data.collection.locations)
+      
+      // var services = Response.data.collection.locations.filter(x => {
+      //   return x.country[0] === 'es'
+      // })
+      //   setMovieVod(services)
     })}
   
 
