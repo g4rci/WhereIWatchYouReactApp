@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player'
 import './MovieDetails.css'
 
 
-  function MovieDetails(props) {
+function MovieDetails(props) {
   const [movieDetails, setMovieDetails] = useState([]);
   const [movieTrailer, setMovieTrailer] = useState([]);
   const [movieVod, setMovieVod] = useState([]);
@@ -33,12 +33,10 @@ import './MovieDetails.css'
        `https://api.themoviedb.org/3/movie/${props.match.params.id}/videos?api_key=${process.env.REACT_APP_THEMOVIEDB}`
        )
        .then((videoResponse) => {
-         let trailer = videoResponse.data.results
-         if (trailer.length > 0){
-          setMovieTrailer(videoResponse.data.results[0].key)
-         }else {
-         setMovieTrailer(null)
-         }
+          setMovieTrailer(videoResponse.data.results[0] ?
+            videoResponse.data.results[0].key :
+            null
+            )
        })
      }       
   
@@ -63,8 +61,11 @@ import './MovieDetails.css'
         }
         })
     .then((Response) => {
-      setMovieVod(Response.data.collection.locations)
-      
+      setMovieVod(
+        Response.data.collection.locations ? 
+        Response.data.collection.locations : 
+        []
+        )
       // var services = Response.data.collection.locations.filter(x => {
       //   return x.country[0] === 'es'
       // })
@@ -82,10 +83,12 @@ import './MovieDetails.css'
       <Card style={{ width: "100vw" }}>
         <Card.Img className='backdrop' variant="top" src={`https://image.tmdb.org/t/p/w500//${movieDetails.backdrop_path}`} />
         <Card.Body>
+      {movieDetails ?
       <img className='background'
         src={`https://image.tmdb.org/t/p/w500//${movieDetails.poster_path}`}
-        alt=""
-        />
+        alt={movieDetails.poster_path}
+        /> : 
+        null}
           <Card.Title>{movieDetails.title}</Card.Title>
           <Card.Text>{movieDetails.overview}</Card.Text>
       {movieVod.map((vod) => {
@@ -118,7 +121,9 @@ import './MovieDetails.css'
         <Card.Body>
           <Card.Link href={movieDetails.homepage}>Oficial WebPage</Card.Link>
           <Card.Link href={`https://www.imdb.com/title/${movieDetails.imdb_id}/?ref_=fn_al_tt_1`}>Imdb Link</Card.Link>
-         <ReactPlayer className='trailer' url={`https://www.youtube.com/watch?v=${movieTrailer}`} playing controls volume={0.5} light width={'100%'} height={'30rem'}/>
+          {movieTrailer ? 
+         <ReactPlayer className='trailer' url={`https://www.youtube.com/watch?v=${movieTrailer}`} playing controls volume={0.5} light width={'100%'} height={'30rem'}/> :
+         <div className='trailer'></div>}
         </Card.Body>
       </Card>
       {/* <Footer /> */}

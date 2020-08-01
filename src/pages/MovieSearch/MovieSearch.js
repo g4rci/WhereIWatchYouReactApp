@@ -22,7 +22,7 @@ function MovieSearch(props) {
     getMovieSearch();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  
   return (
     <div className="sections">
       <div className="moviesearchbackground"></div>
@@ -40,15 +40,16 @@ function MovieSearch(props) {
                 )}
                 <Card style={{ heigth: "100%" }}>
                   <Link to={`/moviedetails/${movie.id}`} className="card_link">
-                    {movie.backdrop_path ? (
-                      <Card.Img
-                        variant="top"
-                        src={`https://image.tmdb.org/t/p/w500//${movie.poster_path}`}
-                      />
-                    ) : (
+                    {!movie.backdrop_path ? (
                       <Card.Img
                         variant="top"
                         src={`https://eticketsolutions.com/demo/themes/e-ticket/img/movie.jpg`}
+                      />
+                      
+                    ) : (
+                      <Card.Img
+                        variant="top"
+                        src={`https://image.tmdb.org/t/p/w500//${movie.poster_path}`}
                       />
                     )}
                   </Link>
