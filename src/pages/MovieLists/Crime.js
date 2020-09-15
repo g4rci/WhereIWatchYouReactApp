@@ -37,6 +37,7 @@ function CrimeMovies(props) {
                     <Link
                       to={`/moviedetails/${movie.id}`}
                       className="card_link"
+                      onClick={() => window.scrollTo(0, 0)}
                     >
                       <Card.Img
                         variant="top"
