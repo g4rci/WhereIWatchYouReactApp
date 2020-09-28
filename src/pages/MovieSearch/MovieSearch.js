@@ -39,7 +39,10 @@ function MovieSearch(props) {
                   </p>
                 )}
                 <Card style={{ heigth: "100%" }}>
-                  <Link to={`/moviedetails/${movie.id}`} className="card_link">
+                  <Link to={`/moviedetails/${movie.id}`} 
+                    className="card_link"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
                     {!movie.backdrop_path ? (
                       <Card.Img
                         variant="top"
