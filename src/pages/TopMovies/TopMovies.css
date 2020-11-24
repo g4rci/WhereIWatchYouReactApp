@@ -20,7 +20,13 @@
 }
 
 ._cards p{
+    margin-left: 8px;
     color: black;
+    position: absolute;
+    overflow: scroll;
+    white-space: nowrap;
+    z-index: 1;
+    width: 135px;
 }
 
 .bg-dark{
@@ -29,5 +35,4 @@
     padding-left: 20px;
     padding-top: 20px;
 }
-
 

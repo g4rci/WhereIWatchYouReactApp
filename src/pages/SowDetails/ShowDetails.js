@@ -18,7 +18,6 @@ function ShowDetails(props) {
       `https://api.themoviedb.org/3/tv/${props.match.params.id}?api_key=${process.env.REACT_APP_THEMOVIEDB}&language=es`
       )
       .then((responseFromApi) => {
-          console.log(responseFromApi.data)
         setShowDetails(responseFromApi.data);
         setGenreList(responseFromApi.data.genres)
         setLastEpisode(responseFromApi.data.last_episode_to_air)

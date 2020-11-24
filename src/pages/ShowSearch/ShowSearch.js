@@ -31,22 +31,22 @@ function MovieSearch(props) {
           return (
             <div key={show.id} className="cardList">
               <div className={listOfMatch.length > 1 ? "cards" : "cards2"}>
-                {!show.backdrop_path ? (
-                  <p className="showTtitle">{show.title}</p>
+                {!show.poster_path ? (
+                  <p className="movieTtitle">{show.name}</p>
                 ) : (
-                  <p className="showTtitle">
+                  <p className="movieTtitle">
                     <span>.</span>
                   </p>
                 )}
                 <Card style={{ heigth: "100%" }}>
-                  <Link to={`/showdetails/${show.id}`} 
+                  <Link to={`/moviedetails/${show.id}`} 
                     className="card_link"
                     onClick={() => window.scrollTo(0, 0)}
                   >
-                    {!show.backdrop_path ? (
+                    {!show.poster_path ? (
                       <Card.Img
                         variant="top"
-                        src={`https://eticketsolutions.com/demo/themes/e-ticket/img/show.jpg`}
+                        src={`https://eticketsolutions.com/demo/themes/e-ticket/img/movie.jpg`}
                       />
                       
                     ) : (

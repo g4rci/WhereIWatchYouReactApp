@@ -26,9 +26,9 @@
     background-color: #E9ECEF;
 }
 .movieTtitle{
-    color: white;
-    position: relative;
-    transform: translate(5%, 180%);
+    margin-left: 8px;
+    color: black;
+    position: absolute;
     overflow: scroll;
     white-space: nowrap;
     z-index: 1;

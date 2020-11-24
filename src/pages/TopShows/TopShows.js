@@ -4,8 +4,14 @@ import Card from "react-bootstrap/Card";
 import ShowsCarousel from "../../components/Carousel/SowsCarousel";
 import "./../TopMovies/TopMovies.css";
 import { Link } from "react-router-dom";
-import ActionMovies from "../MovieLists/Action";
 import ScrollContainer from "react-indiana-drag-scroll";
+import ActionShows from "../ShowLists/Action";
+import ComedyShows from '../ShowLists/Comedy'
+import ScyFyShows from "../ShowLists/ScyFy";
+import AnimationShows from "../ShowLists/Animation";
+import CrimeShows from "../ShowLists/Crime";
+import TerrorShows from "../ShowLists/Terror";
+import MusicShows from "../ShowLists/Music";
 
 function TopMovies(props) {
   const [listOfShows, setListOfShows] = useState([]);
@@ -57,8 +63,13 @@ function TopMovies(props) {
           </div>
         </ScrollContainer>
       </div>
-      <ActionMovies />
-      
+      <ActionShows />
+      <ComedyShows />
+      <ScyFyShows />
+      <AnimationShows />
+      <CrimeShows />
+      <TerrorShows />
+      <MusicShows />
     </div>
   );
 }

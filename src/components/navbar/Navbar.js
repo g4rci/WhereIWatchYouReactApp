@@ -25,7 +25,6 @@ class Navigation extends React.Component {
 render () {
   
   const { name } = this.state
-  console.log(this.props.location)
     return (
       <div className='navBar'>
         <Navbar bg="dark" variant="dark" expand="lg">
