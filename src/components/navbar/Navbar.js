@@ -14,13 +14,18 @@ class Navigation extends React.Component {
     }); 
   };
   
-  submitForm (e) {
+  submitForm1 (e) {
     this.props.history.push(`/moviesearch/${this.state.name}`); 
   }
 
+  submitForm2 (e) {
+    this.props.history.push(`/showsearch/${this.state.name}`); 
+  }
+  
 render () {
-
+  
   const { name } = this.state
+  console.log(this.props.location)
     return (
       <div className='navBar'>
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -29,7 +34,8 @@ render () {
           <Navbar.Collapse id="basic-navbar-nav">
             {auth().currentUser ?
               <Nav className="mr-auto">
-              <Nav.Link href="/topmovies">Home</Nav.Link>
+              <Nav.Link href="/topmovies">Movies</Nav.Link>
+              <Nav.Link href="/topshows">TvShows</Nav.Link>
               <Nav.Link href="/" onClick={() => auth().signOut()}>LogOut</Nav.Link>
               </Nav>
               :
@@ -38,10 +44,19 @@ render () {
               <Nav.Link href="/signup">SignUp</Nav.Link>
               </Nav>
             }
-            <Form onSubmit={this.submitForm.bind(this)} inline>
-              <FormControl href={`/moviesearch/${this.state.name}`} className='mb-2 mt-2 mr-sm-2' value={name} onChange={this.searchFilter} type="search" placeholder="eg: Avengers" />
+            {this.props.location.pathname.includes('/topmovies') ||
+            this.props.location.pathname.includes('/moviesearch') ||
+            this.props.location.pathname.includes('/moviedetails') ?
+            <Form onSubmit={this.submitForm1.bind(this)} inline>
+              <FormControl href={`/moviesearch/${this.state.name}`} className='mb-2 mt-2 mr-sm-2' value={name} onChange={this.searchFilter} type="search" placeholder="Search Movie" />
               <Button type='submit' className='mb-2 mt-2' href={`/moviesearch/${this.state.name}`} variant="outline-success" >Buscar</Button>
             </Form>
+            :
+            <Form onSubmit={this.submitForm2.bind(this)} inline>
+              <FormControl href={`/showsearch/${this.state.name}`} className='mb-2 mt-2 mr-sm-2' value={name} onChange={this.searchFilter} type="search" placeholder="Search TvShow" />
+              <Button type='submit' className='mb-2 mt-2' href={`/showsearch/${this.state.name}`} variant="outline-success" >Buscar</Button>
+            </Form>
+            }
           </Navbar.Collapse>
         </Navbar>
       </div>

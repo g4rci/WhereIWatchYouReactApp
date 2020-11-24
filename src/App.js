@@ -13,7 +13,9 @@ import Navigation from './components/navbar/Navbar';
 import TopMovies from './pages/TopMovies/TopMovies'
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import MovieSearch from "./pages/MovieSearch/MovieSearch";
-
+import TopShows from "./pages/TopShows/TopShows"
+import ShowDetails from './pages/SowDetails/ShowDetails'
+import ShowSearch from './pages/ShowSearch/ShowSearch'
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -96,6 +98,21 @@ class App extends Component {
               exact path="/moviesearch/:name"
               authenticated={this.state.authenticated}
               component={MovieSearch}
+            />
+            <PrivateRoute
+              path="/topshows"
+              authenticated={this.state.authenticated}
+              component={TopShows}
+            />
+            <PrivateRoute
+              exact path="/showdetails/:id"
+              authenticated={this.state.authenticated}
+              component={ShowDetails}
+            />
+            <PrivateRoute
+              exact path="/showsearch/:name"
+              authenticated={this.state.authenticated}
+              component={ShowSearch}
             />
             <PublicRoute
               path="/signup"
