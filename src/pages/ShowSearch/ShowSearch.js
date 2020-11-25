@@ -39,7 +39,7 @@ function MovieSearch(props) {
                   </p>
                 )}
                 <Card style={{ heigth: "100%" }}>
-                  <Link to={`/moviedetails/${show.id}`} 
+                  <Link to={`/showdetails/${show.id}`} 
                     className="card_link"
                     onClick={() => window.scrollTo(0, 0)}
                   >
