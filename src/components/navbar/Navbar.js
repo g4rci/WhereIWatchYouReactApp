@@ -41,28 +41,9 @@ class Navigation extends React.Component {
                 <Nav.Link href="/signup">SignUp</Nav.Link>
               </Nav>
             )}
-            {this.props.location.pathname.includes("/topMovies") ||
-            this.props.location.pathname.includes("/moviesearch") ||
-            this.props.location.pathname.includes("/moviedetails") ? (
-              <Form onSubmit={this.submitForm1.bind(this)} inline>
-                <FormControl
-                  href={`/moviesearch/${this.state.name}`}
-                  className="mb-2 mt-2 mr-sm-2"
-                  value={name}
-                  onChange={this.searchFilter}
-                  type="search"
-                  placeholder="Search Movie"
-                />
-                <Button
-                  type="submit"
-                  className="mb-2 mt-2"
-                  href={`/moviesearch/${this.state.name}`}
-                  variant="outline-success"
-                >
-                  Buscar
-                </Button>
-              </Form>
-            ) : (
+            {this.props.location.pathname.includes("/topshows") ||
+            this.props.location.pathname.includes("/showsearch") ||
+            this.props.location.pathname.includes("/showdetails") ? (
               <Form onSubmit={this.submitForm2.bind(this)} inline>
                 <FormControl
                   href={`/showsearch/${this.state.name}`}
@@ -76,6 +57,25 @@ class Navigation extends React.Component {
                   type="submit"
                   className="mb-2 mt-2"
                   href={`/showsearch/${this.state.name}`}
+                  variant="outline-success"
+                >
+                  Buscar
+                </Button>
+              </Form>
+            ) : (
+              <Form onSubmit={this.submitForm1.bind(this)} inline>
+                <FormControl
+                  href={`/moviesearch/${this.state.name}`}
+                  className="mb-2 mt-2 mr-sm-2"
+                  value={name}
+                  onChange={this.searchFilter}
+                  type="search"
+                  placeholder="Search Movie"
+                />
+                <Button
+                  type="submit"
+                  className="mb-2 mt-2"
+                  href={`/moviesearch/${this.state.name}`}
                   variant="outline-success"
                 >
                   Buscar

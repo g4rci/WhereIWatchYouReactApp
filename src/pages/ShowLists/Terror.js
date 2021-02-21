@@ -4,12 +4,13 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import ScrollContainer from "react-indiana-drag-scroll";
 
+//terrorShows are removed from the API and I repleaced it with SoapOpera TvShows temporary
 function TerrorShows(props) {
   const [listOfShows, setListOfShows] = useState([]);
   const getTerrorShows = async () => {
     await axios
       .get(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_THEMOVIEDB}&language=es&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27`
+        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_THEMOVIEDB}&language=es&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=10766`
       )
       .then((responseFromApi) => {
         setListOfShows(responseFromApi.data.results);
@@ -24,7 +25,7 @@ function TerrorShows(props) {
     <div key="terror">
       <div className="title">
         <h5 className="bg-dark" variant="dark">
-          Terror
+          Telenovela
         </h5>
       </div>
       <ScrollContainer>

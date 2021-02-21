@@ -8,17 +8,17 @@ function ActionShows(props) {
   const [listOfShows, setListOfShows] = useState([]);
   const getActionShows = async () => {
     await axios
-      .get(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_THEMOVIEDB}&language=es&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28,12`
+    .get(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_THEMOVIEDB}&language=es&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28,12`
       )
       .then((responseFromApi) => {
         setListOfShows(responseFromApi.data.results);
       });
-  };
-  useEffect(function () {
-    getActionShows();
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    };
+    useEffect(function () {
+      getActionShows();
+      //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
   return (
     <div key="action">

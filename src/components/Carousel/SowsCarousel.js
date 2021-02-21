@@ -29,7 +29,8 @@ function TopShows() {
       {listOfShows.map((show) => {
         return (
         <Carousel.Item key={show.id}>
-        <Link to={`/showdetails/${show.id}`} className="card_link">
+        <Link to={`/showdetails/${show.id}`} className="card_link" onClick={() => window.scrollTo(0, 0)}
+>
             <img
             className="d-block w-100"
             src={`https://image.tmdb.org/t/p/w500//${show.backdrop_path}`}

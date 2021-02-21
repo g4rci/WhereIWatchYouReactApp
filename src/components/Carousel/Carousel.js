@@ -30,7 +30,8 @@ function TopMovies() {
       {listOfMovies.map((movie) => {
         return (
         <Carousel.Item key={movie.id}>
-        <Link to={`/moviedetails/${movie.id}`} className="card_link">
+        <Link to={`/moviedetails/${movie.id}`} className="card_link" onClick={() => window.scrollTo(0, 0)}
+>
             <img
             className="d-block w-100"
             src={`https://image.tmdb.org/t/p/w500//${movie.backdrop_path}`}
