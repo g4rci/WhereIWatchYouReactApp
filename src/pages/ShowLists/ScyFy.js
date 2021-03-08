@@ -9,7 +9,7 @@ function ScyFyShows(props) {
   const getScyFyShows = async () => {
     await axios
       .get(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_THEMOVIEDB}&language=es&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=878`
+        `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_THEMOVIEDB}&language=es&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=10765`
       )
       .then((responseFromApi) => {
         setListOfShows(responseFromApi.data.results);
