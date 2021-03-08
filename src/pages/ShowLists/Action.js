@@ -19,7 +19,7 @@ function ActionShows(props) {
       getActionShows();
       //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-console.log(listOfShows)
+    
   return (
     <div key="action">
       <div className="title">
